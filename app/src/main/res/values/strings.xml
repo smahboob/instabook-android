@@ -4,4 +4,10 @@
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="post_description">Post Description</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="postimage">PostImage</string>
+    <string name="messageForUpload">Press on the camera below to select or capture a new image!</string>
+    <string name="create_new_post">Create New Post</string>
+    <string name="newpost">NewPost</string>
 </resources>
