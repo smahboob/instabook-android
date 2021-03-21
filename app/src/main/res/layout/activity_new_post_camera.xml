@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:id="@+id/cameraView"
+    tools:context=".NewPostCamera">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/messageForCamera"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/holo_red_dark"/>
+
+    <ImageView
+        android:id="@+id/newPostImageViewCamera"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        android:contentDescription="@string/postimage" />
+
+    <EditText
+        android:id="@+id/newPostDescriptionTextCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/post_description"
+        android:textSize="14sp"
+        android:lines="2"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/newPostUploadCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_image" />
+
+</LinearLayout>

@@ -7,7 +7,13 @@
     <string name="post_description">Post Description</string>
     <string name="upload_image">Upload Image</string>
     <string name="postimage">PostImage</string>
-    <string name="messageForUpload">Press on the camera below to select or capture a new image!</string>
+    <string name="messageForUpload">Press on the camera below to select a new image!</string>
+    <string name="messageForCamera">Press on the camera below to capture a new image!</string>
     <string name="create_new_post">Create New Post</string>
     <string name="newpost">NewPost</string>
+    <string name="newpost1">NewPost1</string>
+    <string name="tag">TAG</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="logout">Logout</string>
 </resources>

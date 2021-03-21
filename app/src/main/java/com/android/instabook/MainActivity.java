@@ -2,7 +2,6 @@ package com.android.instabook;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -12,9 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 posts.addAll(objects);
                 updateAdapter();
+                Snackbar.make(findViewById(R.id.relativeLayout), "Post Data Loaded!", Snackbar.LENGTH_SHORT).show();
             }
         });
     }
@@ -63,9 +66,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.compose_button_action_bar){
-            startActivityForResult(new Intent(this,NewPost.class), 2);
+        if(item.getItemId() == R.id.uploadPicturePost){
+            startActivityForResult(new Intent(this, NewPostUpload.class), 2);
             return true;
+        }
+        else if(item.getItemId() == R.id.cameraPicturePost){
+            startActivityForResult(new Intent(this, NewPostCamera.class), 3);
+            return true;
+        }
+        else if(item.getItemId() == R.id.logOutButton){
+            ParseUser.logOut();
+            if(ParseUser.getCurrentUser() != null){
+                startActivity(new Intent(this, LauncherActivity.class));
+                finish();
+                return true;
+            }
+            Toast.makeText(this, "Failed to Logout!", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -74,11 +90,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 2 && resultCode == RESULT_OK){
-            //get data from the intent
-            assert data != null;
-            //Post post = Parcels.unwrap(data.getParcelableExtra("post"));
-            //update the recycler view
-            //posts.add(0,post);
+        }
+        if(requestCode == 3 && resultCode == RESULT_OK){
+            Snackbar.make(findViewById(R.id.relativeLayout), "Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
         }
     }
 }

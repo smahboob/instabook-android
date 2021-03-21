@@ -5,16 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.parse.ParseUser;
 
-public class NewPost extends AppCompatActivity {
+public class NewPostUpload extends AppCompatActivity {
 
     EditText descriptionText;
     ImageView postImage;
@@ -24,7 +21,7 @@ public class NewPost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_post);
+        setContentView(R.layout.activity_new_post_upload);
 
         descriptionText = findViewById(R.id.newPostDescriptionText);
         postImage = findViewById(R.id.newPostImageView);
@@ -50,7 +47,6 @@ public class NewPost extends AppCompatActivity {
     }
 
     private void goToMainActivity() {
-
         newPost = new Post();
         newPost.setDescription(descriptionText.getText().toString());
         newPost.setUser(ParseUser.getCurrentUser());

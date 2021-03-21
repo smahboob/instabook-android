@@ -3,6 +3,7 @@ package com.android.instabook;
 import android.media.Image;
 
 import com.parse.ParseClassName;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -16,31 +17,28 @@ public class Post extends ParseObject {
     public static final String DESCRIPTION_KEY = "description";
     public static final String IMAGE_KEY = "image";
 
-    public ParseUser user;
-    public String description;
-    public ParseFile postImage;
 
-    public ParseUser getUser() {
-        return getParseUser("user");
+    public ParseUser getUser() throws ParseException {
+        return fetchIfNeeded().getParseUser("user");
     }
 
     public void setUser(ParseUser user) {
         put(USER_KEY, user);
     }
 
-    public String getDescription() {
-        return getString(DESCRIPTION_KEY);
+    public String getDescription() throws ParseException {
+        return fetchIfNeeded().getString(DESCRIPTION_KEY);
     }
 
     public void setDescription(String description) {
         put(DESCRIPTION_KEY,description);
     }
 
-    public ParseFile getPostImage() {
-        return getParseFile(IMAGE_KEY);
+    public ParseFile getPostImage() throws ParseException {
+        return fetchIfNeeded().getParseFile(IMAGE_KEY);
     }
 
-    public void setPostImage(Image postImage) {
+    public void setPostImage(ParseFile postImage) {
         put(IMAGE_KEY, postImage);
     }
 
